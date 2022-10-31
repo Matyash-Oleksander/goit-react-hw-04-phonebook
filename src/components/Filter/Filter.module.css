@@ -1,0 +1,17 @@
+.label {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #010003, #b393d3);
+  color: black;
+  background-clip: text;
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+.input {
+  display: block;
+  border-radius: 5px;
+  padding: 10px;
+  width: 250px;
+  margin-top: 20px;
+}

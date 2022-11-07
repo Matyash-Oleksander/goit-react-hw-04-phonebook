@@ -17,20 +17,6 @@ class App extends Component {
     filter: PropTypes.string,
   };
 
-  contactInputId = nanoid();
-  nameInputId = nanoid();
-  numberInputId = nanoid();
-
-  renderContacts = () => {
-    console.log(this.state.contacts);
-    return this.state.contacts.map((id, name, number) => (
-      <li>
-        {name} : {number}
-        <button className={css.btnAdd}> Delete </button>
-      </li>
-    ));
-  };
-
   addConctact = data => {
     const { name, number } = data;
     const { contacts } = this.state;
@@ -39,19 +25,19 @@ class App extends Component {
       contact => contact.name.toLowerCase() === normalizedFilter
     );
 
+    const contact = {
+      id: nanoid(),
+      name: name,
+      number: number,
+    };
+
     if (checkByName) {
       alert(`${name} is already in contacts`);
-    } else {
-      const contact = {
-        id: nanoid(),
-        name: name,
-        number: number,
-      };
-
-      this.setState(({ contacts }) => ({
-        contacts: [contact, ...contacts],
-      }));
+      return;
     }
+    this.setState(({ contacts }) => ({
+      contacts: [contact, ...contacts],
+    }));
   };
 
   deleteConctact = contactId => {

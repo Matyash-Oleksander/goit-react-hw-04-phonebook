@@ -59,7 +59,6 @@ export default function App() {
   }, [contacts]);
 
   const visibleContacts = getVisibleContacts();
-  // console.log(visibleContacts);
 
   return (
     <div className={css.section}>
